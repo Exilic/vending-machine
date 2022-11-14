@@ -1,16 +1,33 @@
 package se.Lexicon.model;
 
+
 public class ProductSour extends Product {
 
-    public ProductSour(double price, String productName){
+    private Texture texture;
+
+    public enum Texture {
+        HARD,
+        SOFT
+    }
+
+    public ProductSour(double price, String productName, Texture texture){
         super(price, productName);
+        this.texture = texture;
+    }
+
+    public Texture getTexture() {
+        return texture;
+    }
+
+    public void setTexture(Texture texture) {
+        this.texture = texture;
     }
 
     public String use() {
-        return "test";
+        return "Taste " + super.getProductName() + " and smile";
     }
 
     public String examine() {
-        return "test";
+        return "Candy of " + texture + " resistance";
     }
 }
